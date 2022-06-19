@@ -3,7 +3,7 @@
 
 include "/home/jacek/.gtkrc-2.0.mine"
 gtk-theme-name="Materia-dark-compact"
-gtk-icon-theme-name="oomox-Royalty"
+gtk-icon-theme-name="ePapirus-Dark"
 gtk-font-name="Poppins 9"
 gtk-cursor-theme-name="volantes_cursors"
 gtk-cursor-theme-size=32
