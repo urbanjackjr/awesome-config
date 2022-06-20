@@ -89,14 +89,41 @@ local bottom_panel = function(s)
     visible = true,
     height = bottom_panel_height,
     maximum_height = bottom_panel_height,
-    placement = awful.placement.bottom,
     shape = gears.shape.rectangle,
     bg = beautiful.transparent
   }
 
+  awful.placement.bottom(panel, {
+    margins = {
+      right = bottom_panel_margins,
+      bottom = dpi(0)
+    },
+    parent = s
+  })
+
   panel:struts{
-    bottom = bottom_panel_height
+    bottom = dpi(5)
   }
+
+  panel:connect_signal("mouse::enter", function()
+    awful.placement.bottom(panel, {
+      margins = {
+        right = bottom_panel_margins,
+        bottom = dpi(0)
+      },
+      parent = s
+    })
+  end)
+
+  panel:connect_signal("mouse::leave", function()
+    awful.placement.bottom(panel, {
+      margins = {
+        right = bottom_panel_margins,
+        bottom = bottom_panel_height * (-1) + dpi(5)
+      },
+      parent = s
+    })
+  end)
 
   return panel
 end
